@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "/LogSight";
+
+package Log_Collector;
+
+service LogCollector {
+    rpc SendLog(LogRequest) returns (LogResponse) {};
+}
+
+message LogRequest {
+    string service = 1;
+    string level =2;
+    string message =3;
+    string timestamp =4;
+    string ip = 5;
+}
+
+message LogResponse {
+     bool success =1;
+     string message =2;
+}
